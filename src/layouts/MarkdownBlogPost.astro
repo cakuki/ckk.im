@@ -21,7 +21,7 @@ const formattedDate = new Date(pubDate).toLocaleDateString("en-US", {
 		</header>
 		<slot />
 		<footer>
-			{tags.map((tag) => <Tag name={tag} />)}
+			{tags.map((tag: string) => <Tag name={tag} />)}
 		</footer>
 	</article>
 </Page>
