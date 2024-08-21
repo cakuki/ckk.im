@@ -1,0 +1,27 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const href: string = Astro.props.href;
+---
+
+<a
+	class:list={{
+		active: href !== "/" ? pathname.startsWith(href) : pathname == href,
+	}}
+	href={href}><slot /></a
+>
+
+<style>
+	a {
+		/* background-color: #222c69; */
+		color: #332c69;
+		text-decoration: none;
+		height: 100%;
+		line-height: 2rem;
+		padding: 0 1rem;
+	}
+	a.active,
+	a:hover {
+		background-color: #f1c40f;
+		color: #332c69;
+	}
+</style>

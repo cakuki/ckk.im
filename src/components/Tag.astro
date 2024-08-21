@@ -1,0 +1,23 @@
+---
+const { name } = Astro.props;
+---
+
+<a class="tag" href={`/blog/tags/${name}`}>{name}</a>
+
+<style>
+	a.tag {
+		background-color: #eee;
+		color: black;
+		padding: 0.25rem 0.5rem;
+		border-radius: 0.25rem;
+		text-decoration: none;
+
+		&::before {
+			content: "#";
+		}
+
+		&:hover {
+			background-color: #ddd;
+		}
+	}
+</style>

@@ -1,0 +1,19 @@
+---
+import Page from "@/layouts/Page.astro";
+import BlogPostLink from "@/components/BlogPostLink.astro";
+
+const allPosts = await Astro.glob("./**/index.{md,mdx}");
+---
+
+<Page title="Home">
+	<h1>Posts</h1>
+	<ul>
+		{
+			allPosts.map((post) => (
+				<li>
+					<BlogPostLink url={post.url} frontmatter={post.frontmatter} />
+				</li>
+			))
+		}
+	</ul>
+</Page>

@@ -1,0 +1,42 @@
+---
+import Tag from "../components/Tag.astro";
+import Page from "./Page.astro";
+
+const { title, pubDate, tags } = Astro.props.frontmatter;
+const formattedDate = new Date(pubDate).toLocaleDateString("en-US", {
+	year: "numeric",
+	month: "long",
+	day: "numeric",
+});
+---
+
+<Page title={title}>
+	<article>
+		<header>
+			<h1>{title}</h1>
+			<p>
+				By <a href="/about">Can Kutlu Kınay</a> on
+				<datetime datetime={pubDate}>{formattedDate}</datetime>
+			</p>
+		</header>
+		<slot />
+		<footer>
+			{tags.map((tag) => <Tag name={tag} />)}
+		</footer>
+	</article>
+</Page>
+
+<style>
+	article {
+		max-width: 40rem;
+		margin: 0 auto;
+	}
+	header {
+		margin-bottom: 2rem;
+	}
+	footer {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+</style>

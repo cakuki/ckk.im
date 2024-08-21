@@ -1,0 +1,45 @@
+---
+import NavItem from "./NavItem.astro";
+---
+
+<header>
+	<a href="/"><logo>CKK</logo></a>
+	<nav>
+		<NavItem href="/">Home</NavItem>
+		<NavItem href="/blog">Blog</NavItem>
+		<NavItem href="/contact">Contact</NavItem>
+	</nav>
+</header>
+
+<style>
+	header {
+		color: white;
+		display: flex;
+		border-bottom: 1px solid #f1c40f;
+		margin-bottom: 2rem;
+
+		logo {
+			background-color: black;
+			border-radius: 5px;
+			color: white;
+			display: inline-block;
+			font-family: Arial Black;
+			font-size: 1.5rem;
+			height: 2.5rem;
+			letter-spacing: 0.5rem;
+			line-height: 2.5rem;
+			padding: 0 0.2rem 0 0.6rem;
+		}
+	}
+
+	header img {
+		width: 50px;
+		height: 50px;
+	}
+
+	nav {
+		display: flex;
+		justify-content: space-between;
+		margin: 0.5rem;
+	}
+</style>

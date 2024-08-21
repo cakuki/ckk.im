@@ -1,0 +1,36 @@
+---
+import type { GetStaticPaths } from "astro";
+import Page from "@/layouts/Page.astro";
+import BlogPostLink from "@/components/BlogPostLink.astro";
+
+export const getStaticPaths = (async () => {
+	const allPosts = await Astro.glob("../**/index.{md,mdx}");
+	const tags = [
+		...new Set(allPosts.flatMap((post) => post.frontmatter.tags ?? [])),
+	];
+
+	return tags.map((tag) => ({
+		params: { tag },
+		props: {
+			posts: allPosts.filter((post) => post.frontmatter.tags?.includes(tag)),
+		},
+	}));
+}) satisfies GetStaticPaths;
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<Page title={tag}>
+	<h1>{tag}</h1>
+	<p>Posts tagged with {tag}:</p>
+	<ul>
+		{
+			posts.map((post) => (
+				<li>
+					<BlogPostLink url={post.url} frontmatter={post.frontmatter} />
+				</li>
+			))
+		}
+	</ul>
+</Page>
