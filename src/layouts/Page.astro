@@ -1,6 +1,7 @@
 ---
 import "@/styles/global.css";
 import NavBar from "@/components/navbar/NavBar.astro";
+import Posthog from "@/components/Posthog.astro";
 
 const { title } = Astro.props;
 ---
@@ -16,5 +17,6 @@ const { title } = Astro.props;
 		<main>
 			<slot />
 		</main>
+		<Posthog />
 	</body>
 </html>
