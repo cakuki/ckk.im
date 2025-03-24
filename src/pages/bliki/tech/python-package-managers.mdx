@@ -1,0 +1,39 @@
+---
+layout: '@/layouts/Bliki.astro'
+
+title: Python Package Managers
+pubDate: 2025-03-24
+tags:
+  - engineering
+  - python
+---
+
+## Intro
+
+My goal is to list managers I tried and compare them. So I started with listing them first.
+
+## List of managers
+
+### pip
+
+The OG. Nothing fancy, simply werks.
+
+### [poetry](https://python-poetry.org/)
+
+I used it in a few projects. Amazing design, though it feels slow time to time. I liked that it used `pyproject.toml` file.
+
+### [pipenv](https://pipenv.pypa.io/en/latest/)
+
+I used this a lot in production, but its popularity died away with poetry back then. I was a good and simple tool (I did not like the fancy look of poetry tbh). But it got super slow over time. While being not compliant with PEP standards and having frequent releases, it did not feel like big problems were getting resolved.
+
+### conda
+
+I heard about this one a lot. I never used it though. Feels like it is more for data science.
+
+### [pdm](https://pdm.fming.dev/)
+
+I used in one POC project at work. Works smoothly. Uses standard `pyproject.toml` file ([PEP 621](https://peps.python.org/pep-0621/)). Worked well on other machines for distribution.
+
+### [uv](https://github.com/astral-sh/uv#uv)
+
+The one I am looking forward to trying. Written in Rust.

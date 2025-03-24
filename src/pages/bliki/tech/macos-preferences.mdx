@@ -1,0 +1,40 @@
+---
+layout: '@/layouts/Bliki.astro'
+
+title: Automating macOS preferences
+pubDate: 2025-03-18
+tags:
+  - "engineering"
+  - "macos"
+
+---
+import { Image } from 'astro:assets';
+import macosPreferences1 from './macos-preferences-1.png';
+
+## Keyboard shortcuts
+
+I like to customize macOS keyboard shortcuts to speed up my workflows. Here are some of the shortcuts I use:
+
+My goal is to learn how to automate these settings so I can make part of these my dotfiles repo (which also needs maintenance).
+
+## Zoom
+
+<Image src={macosPreferences1} alt="System preferences" width="600" />
+
+TODO: Add code to automate
+
+## Prevent accidental closing of Safari
+
+```bash
+defaults write \
+	com.apple.Safari \
+	NSUserKeyEquivalents -\
+	dict-add "Quit Safari" "@\$q"
+```
+
+This needs full disk access as sandboxed apps are not accessible directly. I needed to add iterm (my terminal) to the list of apps that have full disk access.
+
+## References and Other Resources
+
+* https://ryanmo.co/2017/01/05/setting-keyboard-shortcuts-from-terminal-in-macos/
+* https://www.defaults-write.com

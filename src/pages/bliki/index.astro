@@ -1,0 +1,23 @@
+---
+import Page from "@/layouts/Page.astro";
+import BlogPostLink from "@/components/BlogPostLink.astro";
+
+const allPosts = (await Astro.glob("./**/*.{md,mdx}")).sort((a, b) => {
+	const dateA = new Date(a.frontmatter.pubDate);
+	const dateB = new Date(b.frontmatter.pubDate);
+	return dateB.valueOf() - dateA.valueOf();
+});
+---
+
+<Page title="Bliki">
+	<h1>Bliki Posts</h1>
+	<ul>
+		{
+			allPosts.map((post) => (
+				<li>
+					<BlogPostLink url={post.url} frontmatter={post.frontmatter} />
+				</li>
+			))
+		}
+	</ul>
+</Page>
