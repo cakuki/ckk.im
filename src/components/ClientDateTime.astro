@@ -8,7 +8,7 @@ const { date, format = "date" } = Astro.props;
 </datetime>
 
 <script>
-	function formatDate(dateString, format) {
+	function formatDate(dateString: string, format: "date" | "full" = "date") {
 		const date = new Date(dateString);
 
 		if (format === "date") {

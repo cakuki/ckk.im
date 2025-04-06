@@ -1,9 +1,8 @@
 ---
-import Tag from "../components/Tag.astro";
 import Page from "./Page.astro";
 import ClientDateTime from "../components/ClientDateTime.astro";
 
-const { title, pubDate, lastUpdated, tags } = Astro.props.frontmatter;
+const { title, pubDate, lastUpdated } = Astro.props.frontmatter;
 ---
 
 <Page title={title}>
@@ -25,9 +24,6 @@ const { title, pubDate, lastUpdated, tags } = Astro.props.frontmatter;
 			</p>
 		</header>
 		<slot />
-		<!-- <footer>
-        {tags.map((tag: string) => <Tag name={tag} />)}
-    </footer> -->
 	</article>
 </Page>
 
